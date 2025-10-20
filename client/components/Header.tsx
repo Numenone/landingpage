@@ -1,4 +1,4 @@
-import { Heart, ShoppingCart } from "lucide-react";
+import { Menu } from "lucide-react"; // Added Menu icon for mobile navigation
 
 export default function Header() {
   const scrollToQR = () => {
@@ -22,26 +22,26 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <button
-            onClick={scrollToQR}
+          <a
+            href="/stores"
             className="text-white text-[17px] hover:text-[#FF6200] transition"
           >
             Lojas
-          </button>
-          <button
-            onClick={scrollToQR}
+          </a>
+          <a
+            href="/products" // Keeping products for now, will be updated later if needed
             className="text-white text-[17px] hover:text-[#FF6200] transition"
           >
             Produtos
-          </button>
+          </a>
           <a
-            href="#"
+            href="/how-it-works"
             className="text-white text-[17px] hover:text-[#FF6200] transition"
           >
             Como Funciona
           </a>
           <a
-            href="#"
+            href="/contact"
             className="text-white text-[17px] hover:text-[#FF6200] transition"
           >
             Contato
@@ -50,14 +50,13 @@ export default function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button className="p-2 text-white hover:text-[#FF6200] transition">
-            <Heart className="w-5 h-5" />
-          </button>
-          <button className="p-2 text-white hover:text-[#FF6200] transition">
-            <ShoppingCart className="w-5 h-5" />
-          </button>
+          {/* Removed Heart and ShoppingCart icons */}
           <button className="bg-[#FF6200] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#ff7519] transition">
             Entrar
+          </button>
+          {/* Mobile menu button */}
+          <button className="md:hidden p-2 text-white hover:text-[#FF6200] transition">
+            <Menu className="w-5 h-5" />
           </button>
         </div>
       </div>

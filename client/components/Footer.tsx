@@ -46,7 +46,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
+                  href="/stores"
                   className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
                 >
                   Lojas
@@ -54,7 +54,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/products"
                   className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
                 >
                   Produtos
@@ -62,7 +62,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/how-it-works"
                   className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
                 >
                   Como Funciona
@@ -70,7 +70,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/contact"
                   className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
                 >
                   Contato
