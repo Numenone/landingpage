@@ -15,12 +15,11 @@ export default function FeaturedCategories() {
             <button
               key={index}
               onClick={scrollToQR}
-              className="flex flex-col items-center gap-3 flex-shrink-0 group"
-            >
-              <div className="w-[100px] h-[100px] rounded-full bg-[#D9D9D9] flex items-center justify-center overflow-hidden group-hover:ring-4 group-hover:ring-[#FF6200] group-hover:ring-opacity-50 transition">
+              className="flex flex-col items-center gap-3 flex-shrink-0 group">
+              <div className="w-[120px] h-[120px] rounded-full bg-[#D9D9D9] flex items-center justify-center overflow-hidden group-hover:ring-4 group-hover:ring-[#FF6200] group-hover:ring-opacity-50 transition">
                 <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300"></div>
               </div>
-              <span className="text-[20px] text-black text-center">
+              <span className="text-[24px] text-black text-center">
                 {category}
               </span>
             </button>

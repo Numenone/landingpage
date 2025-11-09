@@ -47,24 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        // Cores do BrechApp da imagem
         brech: {
           orange: "hsl(var(--brech-orange))",
           dark: "hsl(var(--brech-dark))",
-          "light-gray": "hsl(var(--brech-light-gray))",
-          gray: "hsl(var(--brech-gray))",
-          "text-dark": "hsl(var(--brech-text-dark))",
-          "text-gray": "hsl(var(--brech-text-gray))",
-          "text-light": "hsl(var(--brech-text-light))",
+          'gray-text': "hsl(var(--brech-text-gray))",
+          footer: "hsl(var(--brech-footer))",
         },
       },
       borderRadius: {

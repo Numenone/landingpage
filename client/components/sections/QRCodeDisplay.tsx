@@ -7,7 +7,7 @@ export const QRCodeDisplay = ({ title, subtitle }: QRCodeDisplayProps) => {
   const expoLink = import.meta.env.VITE_EXPO_LINK || 'https://expo.dev';
   const playStoreLink = import.meta.env.VITE_PLAYSTORE_LINK || 'https://play.google.com/store';
 
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${encodeURIComponent(
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=512x512&data=${encodeURIComponent(
     expoLink
   )}`;
 
@@ -20,7 +20,7 @@ export const QRCodeDisplay = ({ title, subtitle }: QRCodeDisplayProps) => {
               <img
                 src={qrCodeUrl}
                 alt="QR Code para baixar o BrechApp"
-                className="w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48"
+                className="w-40 h-40 sm:w-48 sm:h-48 lg:w-80 lg:h-auto"
               />
             </div>
           </div>

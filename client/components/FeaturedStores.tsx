@@ -32,10 +32,10 @@ export default function FeaturedStores() {
     <section className="bg-[#F5F5F4] py-16">
       <div className="max-w-[1440px] mx-auto px-8 lg:px-20">
         <div className="text-center mb-12">
-          <h2 className="text-[30px] text-[#171717] font-normal mb-4">
+          <h2 className="text-[36px] text-[#171717] font-normal mb-4">
             Brechós em Destaque
           </h2>
-          <p className="text-[18px] text-[#525252]">
+          <p className="text-[22px] text-[#525252]">
             Conheça alguns dos nossos parceiros locais
           </p>
         </div>
@@ -44,30 +44,26 @@ export default function FeaturedStores() {
           {stores.map((store, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg border border-[#E5E5E5] overflow-hidden shadow-sm hover:shadow-md transition"
-            >
-              {/* Store Image Placeholder */}
+              className="bg-white rounded-lg border border-[#E5E5E5] overflow-hidden shadow-sm hover:shadow-md transition">
               <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
                 <span className="text-[#525252] text-base">Foto da Loja</span>
               </div>
-
-              {/* Store Info */}
               <div className="p-6">
-                <h3 className="text-[20px] text-[#171717] font-normal mb-3">
+                <h3 className="text-[22px] text-[#171717] font-normal mb-3">
                   {store.name}
                 </h3>
-                <p className="text-base text-[#525252] leading-relaxed mb-4">
+                <p className="text-lg text-[#525252] leading-relaxed mb-4">
                   {store.description}
                 </p>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-[#737373]">
                     <MapPin className="w-3.5 h-3.5" />
-                    <span className="text-sm">{store.location}</span>
+                    <span className="text-base">{store.location}</span>
                   </div>
                   <button
                     onClick={scrollToQR}
-                    className="text-[#171717] text-base hover:text-[#FF6200] transition font-medium"
+                    className="text-[#171717] text-lg hover:text-[#FF6200] transition font-medium"
                   >
                     Ver Loja
                   </button>

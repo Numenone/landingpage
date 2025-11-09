@@ -1,53 +1,48 @@
-import { Instagram, Facebook, Twitter, Send } from "lucide-react";
+import { Instagram, Facebook, Twitter, Send, Shield } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#333] text-white">
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-20 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+    <footer className="relative bg-[#333] text-white overflow-hidden">
+
+
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-10 lg:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="bg-[#FF6200] p-2 rounded">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                  <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
-                </svg>
-              </div>
-              <span className="text-lg font-semibold">BrechApp</span>
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <img src="/logo.png" alt="BrechApp Logo" className="h-10 sm:h-12" />
             </div>
-            <p className="text-[#A3A3A3] text-base mb-4">
+            <p className="text-[#A3A3A3] text-base sm:text-lg mb-3 sm:mb-4">
               Conectando você aos melhores brechós locais do Brasil
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3 sm:gap-4">
               <a
                 href="#"
-                className="text-[#A3A3A3] hover:text-[#FF6200] transition"
+                className="text-[#A3A3A3] hover:text-primary transition"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
               <a
                 href="#"
-                className="text-[#A3A3A3] hover:text-[#FF6200] transition"
+                className="text-[#A3A3A3] hover:text-primary transition"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
               <a
                 href="#"
-                className="text-[#A3A3A3] hover:text-[#FF6200] transition"
+                className="text-[#A3A3A3] hover:text-primary transition"
               >
-                <Twitter className="w-4 h-4" />
+                <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
           </div>
 
-          {/* Navigation */}
           <div>
-            <h3 className="text-white text-base font-normal mb-4">Navegação</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white text-base sm:text-lg font-normal mb-3 sm:mb-4">Navegação</h3>
+            <ul className="space-y-1.5 sm:space-y-2">
               <li>
                 <a
                   href="/stores"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
+                  className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
                 >
                   Lojas
                 </a>
@@ -55,7 +50,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/products"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
+                  className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
                 >
                   Produtos
                 </a>
@@ -63,7 +58,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/how-it-works"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
+                  className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
                 >
                   Como Funciona
                 </a>
@@ -71,7 +66,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/contact"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
+                  className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
                 >
                   Contato
                 </a>
@@ -79,69 +74,28 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Support */}
           <div>
-            <h3 className="text-white text-base font-normal mb-4">Suporte</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
-                >
-                  Central de Ajuda
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
-                >
-                  Termos de Uso
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
-                >
-                  Privacidade
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#A3A3A3] text-base hover:text-[#FF6200] transition"
-                >
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-white text-base font-normal mb-4">
+            <h3 className="text-white text-base sm:text-lg font-normal mb-3 sm:mb-4">
               Newsletter
             </h3>
-            <p className="text-[#A3A3A3] text-base mb-4">
+            <p className="text-[#A3A3A3] text-base sm:text-lg mb-3 sm:mb-4">
               Receba novidades e ofertas especiais
             </p>
             <div className="flex">
               <input
                 type="email"
                 placeholder="Seu e-mail"
-                className="flex-1 bg-[#262626] border border-[#404040] rounded-l-lg px-3 py-2.5 text-[#ADAEBC] text-base focus:outline-none focus:border-[#FF6200]"
+                className="flex-1 bg-[#262626] border border-[#404040] rounded-l-lg px-2 sm:px-3 py-2 sm:py-2.5 text-[#ADAEBC] text-base sm:text-lg focus:outline-none focus:border-primary"
               />
-              <button className="bg-white text-[#171717] px-4 py-2.5 rounded-r-lg hover:bg-gray-100 transition">
-                <Send className="w-4 h-4" />
+              <button className="bg-white text-[#171717] px-3 sm:px-4 py-2 sm:py-2.5 rounded-r-lg hover:bg-gray-100 transition">
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-[#262626] pt-8 text-center">
-          <p className="text-[#A3A3A3] text-base">
+        <div className="border-t border-[#262626] pt-6 sm:pt-8 text-center">
+          <p className="text-[#A3A3A3] text-sm sm:text-base lg:text-lg">
             © 2025 BrechApp. Todos os direitos reservados.
           </p>
         </div>
