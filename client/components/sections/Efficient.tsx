@@ -13,27 +13,27 @@ export const Efficient = ({ title, text1, text2, personImageUrl, clothesRackUrl 
         <img src={personImageUrl} alt="Cabide com roupa" className="w-full h-auto object-cover" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-32">
-        <div className="flex justify-start">
-          <div className="text-left w-fit pl-[40%]">
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-32 lg:mt-[-8rem]">
+        <div className="flex justify-center lg:justify-start">
+          <div className="text-center lg:text-left lg:w-fit lg:pl-[40%]">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary lg:whitespace-nowrap">
               {title}
             </h2>
-            <p className="text-xl sm:text-4xl text-brech-gray-text mt-4">
+            <p className="text-xl sm:text-3xl lg:text-4xl text-brech-gray-text mt-4">
               {text1}
             </p>
-            <p className="text-xl sm:text-4xl text-brech-gray-text mt-16">
+            <p className="text-xl sm:text-3xl lg:text-4xl text-brech-gray-text mt-8 lg:mt-16">
               {text2}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full overflow-hidden">
+      <div className="w-full">
         <img
           src={clothesRackUrl}
           alt="Varal de Roupas"
-          className="w-full h-auto"
+          className="w-full h-auto mt-8 lg:mt-[-12rem] object-cover"
         />
       </div>
     </section>

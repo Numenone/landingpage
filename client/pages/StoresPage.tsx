@@ -1,53 +1,101 @@
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ShieldCheck } from "lucide-react";
+import StoreCardSkeleton from "@/components/StoreCardSkeleton";
+
+interface VendedorData {
+  id: number;
+  nome: string;
+  foto: string;
+  status: string;
+}
 
 export default function StoresPage() {
+  const [vendedores, setVendedores] = useState<VendedorData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [showOnlyActive, setShowOnlyActive] = useState(false);
+
+  useEffect(() => {
+    const fetchVendedores = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const response = await fetch(`${apiUrl}/vendedores`);
+        if (!response.ok) {
+          throw new Error(`Erro ${response.status}: Não foi possível buscar os dados dos vendedores.`);
+        }
+
+        const data = await response.json();
+        setVendedores(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Ocorreu um erro desconhecido.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVendedores();
+  }, []);
+
+  const filteredVendedores = showOnlyActive
+    ? vendedores.filter((vendedor) => vendedor.status === 'ativo')
+    : vendedores;
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
       <main className="flex-grow max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-12 sm:py-16 w-full">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl text-[#171717] font-medium mb-6 sm:mb-8 text-center">Nossas Lojas Parceiras</h1>
-        <p className="text-base sm:text-lg text-[#525252] mb-8 sm:mb-12 text-center">
-          Explore os brechós mais incríveis perto de você e em todo o Brasil.
-        </p>
-        <div className="mb-8 sm:mb-12 p-4 sm:p-6 bg-[#F5F5F4] rounded-lg">
-          <h2 className="text-lg sm:text-xl font-semibold mb-4">Pesquisar Lojas</h2>
-          <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
-            <input
-              type="text"
-              placeholder="Buscar por nome da loja..."
-              className="flex-1 p-2.5 sm:p-3 text-sm sm:text-base border border-[#E5E5E5] rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <select className="p-2.5 sm:p-3 text-sm sm:text-base border border-[#E5E5E5] rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
-              <option value="">Filtrar por tags</option>
-              <option value="mais-vendidos">Mais Vendidos</option>
-              <option value="menos-vendidos">Menos Vendidos</option>
-              <option value="mais-recentes">Mais Recentes</option>
-              <option value="mais-vistos">Mais Vistos</option>
-            </select>
-            <button className="bg-primary text-white px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-md hover:bg-primary/90 transition">
-              Buscar
-            </button>
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl text-[#171717] font-medium mb-3 sm:mb-4">
+            Lojas Parceiras
+          </h1>
+          <p className="text-base sm:text-lg text-[#525252]">
+            Descubra os melhores brechós perto de você.
+          </p>
+        </div>
+
+        {loading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {Array(6).fill(0).map((_, index) => <StoreCardSkeleton key={index} />)}
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {Array(6).fill(0).map((_, index) => (
-            <div key={index} className="bg-white rounded-lg border border-[#E5E5E5] overflow-hidden shadow-sm hover:shadow-md transition">
-              <div className="h-40 sm:h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
-                <span className="text-[#525252] text-sm sm:text-base">Foto da Loja {index + 1}</span>
+        ) : error ? (
+          <p className="text-center text-lg text-red-600">{error}</p>
+        ) : (
+          <>
+            {vendedores.length > 0 && (
+              <div className="flex justify-end mb-6">
+                <label className="flex items-center gap-2 cursor-pointer text-base text-[#525252] hover:text-primary transition">
+                  <input
+                    type="checkbox"
+                    checked={showOnlyActive}
+                    onChange={() => setShowOnlyActive(!showOnlyActive)}
+                    className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  Mostrar apenas ativos
+                </label>
               </div>
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl text-[#171717] font-normal mb-2 sm:mb-3">Nome da Loja {index + 1}</h3>
-                <p className="text-sm sm:text-base text-[#525252] leading-relaxed mb-3 sm:mb-4">
-                  Endereço da Loja {index + 1}, Cidade, Estado
-                </p>
-                <button className="text-primary text-sm sm:text-base hover:underline transition font-medium">
-                  Ver Loja
-                </button>
+            )}
+            {filteredVendedores.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {filteredVendedores.map((vendedor) => (
+                  <div key={vendedor.id} className="bg-gray-50 rounded-lg shadow-md overflow-hidden group">
+                    <img src={vendedor.foto} alt={`Foto de ${vendedor.nome}`} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <div className="p-4 sm:p-5">
+                      <h2 className="text-lg sm:text-xl font-bold text-primary truncate">{vendedor.nome}</h2>
+                      <p className={`text-sm sm:text-base mt-1 flex items-center gap-2 ${vendedor.status === 'ativo' ? 'text-green-600' : 'text-red-600'}`}>
+                        <ShieldCheck className="w-4 h-4 flex-shrink-0" />
+                        <span className="capitalize">{vendedor.status}</span>
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </div>
+            ) : (
+              <p className="text-center text-lg text-gray-500 py-16">Nenhum vendedor encontrado.</p>
+            )}
+          </>
+        )}
       </main>
       <Footer />
     </div>
