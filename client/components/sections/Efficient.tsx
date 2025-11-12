@@ -14,10 +14,9 @@ export const Efficient = ({ title, text1, text2, personImageUrl, clothesRackUrl 
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-32">
-        <div className="grid grid-cols-2">
-          <div></div>
-          <div className="text-left w-fit">
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary whitespace-nowrap">
+        <div className="flex justify-start">
+          <div className="text-left w-fit pl-[40%]">
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary">
               {title}
             </h2>
             <p className="text-xl sm:text-4xl text-brech-gray-text mt-4">

@@ -8,8 +8,9 @@ export default function Footer() {
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-10 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <img src="/logo.png" alt="BrechApp Logo" className="h-10 sm:h-12" />
+              <span className="text-white text-2xl sm:text-3xl font-bold">BrechApp</span>
             </div>
             <p className="text-[#A3A3A3] text-base sm:text-lg mb-3 sm:mb-4">
               Conectando você aos melhores brechós locais do Brasil
@@ -45,14 +46,6 @@ export default function Footer() {
                   className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
                 >
                   Lojas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/products"
-                  className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
-                >
-                  Produtos
                 </a>
               </li>
               <li>

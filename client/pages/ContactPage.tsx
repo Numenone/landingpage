@@ -2,11 +2,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function ContactPage() {
-
-  const GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY"; 
-  const UNISENAC_PELOTAS_LAT = -31.7669;
-  const UNISENAC_PELOTAS_LNG = -52.3415;
-
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
@@ -50,17 +45,9 @@ export default function ContactPage() {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_API_KEY}&location=${UNISENAC_PELOTAS_LAT},${UNISENAC_PELOTAS_LNG}&heading=210&pitch=10&fov=35`}
-                title="Google Street View of UniSenac Pelotas"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.98582333444!2d-52.3440746848518!3d-31.76694498140599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951049df5b44537b%3A0x40a711f1553535b!2sSenac%20Pelotas!5e0!3m2!1spt-BR!2sbr"
+                title="Localização da UniSenac Pelotas"
               ></iframe>
-              {GOOGLE_MAPS_API_KEY === "YOUR_GOOGLE_MAPS_API_KEY" && (
-                <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center text-white text-center p-4">
-                  <p className="text-sm sm:text-base">
-                    Para ver o StreetView, você precisa substituir "YOUR_GOOGLE_MAPS_API_KEY"
-                    no arquivo `client/pages/ContactPage.tsx` por uma chave de API válida do Google Maps.
-                  </p>
-                </div>
-              )}
             </div>
           </div>
         </div>

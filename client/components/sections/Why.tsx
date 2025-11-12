@@ -27,7 +27,7 @@ const FeatureIcon = ({ index }: { index: number }) => {
 
 export const Why = ({ title, subtitle, features }: WhyProps) => {
   return (
-    <section className="py-12 sm:py-16 lg:py-32 bg-white">
+    <section className="py-12 sm:py-16 lg:py-32 bg-gray-50 border-b border-[#E5E5E5] shadow-lg shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-20">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{title}</h2>

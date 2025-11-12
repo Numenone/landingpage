@@ -3,7 +3,7 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 export default function QRSection() {
   return (
-    <section id="qr-section" className="bg-white py-16 scroll-mt-16">
+    <section id="qr-section" className="bg-[#F5F5F4] py-16 scroll-mt-16">
       <div className="max-w-[1440px] mx-auto px-8 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-8">
@@ -20,7 +20,7 @@ export default function QRSection() {
           </div>
 
           <div className="bg-white border-4 border-[#FF6200] rounded-2xl p-10 inline-block mb-8 shadow-lg">
-            <div className="w-80 h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
+            <div className="w-80 h-80 bg-white rounded-lg flex items-center justify-center">
               <div className="text-center">
                 <div className="w-48 h-48 border-8 border-[#171717] rounded-lg mb-4 flex items-center justify-center">
                   <span className="text-2xl font-bold text-[#171717]">QR</span>
