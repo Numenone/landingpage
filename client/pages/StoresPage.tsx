@@ -20,13 +20,18 @@ export default function StoresPage() {
   useEffect(() => {
     const fetchVendedores = async () => {
       try {
-        const response = await fetch(`/api/vendedores`);
+        const response = await fetch(`/vendedores`);
         if (!response.ok) {
           throw new Error(`Erro ${response.status}: Não foi possível buscar os dados dos vendedores.`);
         }
 
-        const data = await response.json();
-        setVendedores(data);
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+          const data = await response.json();
+          setVendedores(data);
+        } else {
+          throw new Error("A resposta do servidor não é um JSON válido.");
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : "Ocorreu um erro desconhecido.");
       } finally {
