@@ -9,6 +9,15 @@ export default defineConfig({
   },
   publicDir: "client/public",
   plugins: [react()],
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://back-end-brachapp.vercel.app",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),

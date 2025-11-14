@@ -5,10 +5,10 @@ import { ShieldCheck } from "lucide-react";
 import StoreCardSkeleton from "@/components/StoreCardSkeleton";
 
 interface VendedorData {
-  id: number;
+  id: string;
   nome: string;
   foto: string;
-  status: string;
+  status: boolean;
 }
 
 export default function StoresPage() {
@@ -20,8 +20,7 @@ export default function StoresPage() {
   useEffect(() => {
     const fetchVendedores = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL;
-        const response = await fetch(`${apiUrl}/vendedores`);
+        const response = await fetch(`/api/vendedores`);
         if (!response.ok) {
           throw new Error(`Erro ${response.status}: Não foi possível buscar os dados dos vendedores.`);
         }
@@ -39,7 +38,7 @@ export default function StoresPage() {
   }, []);
 
   const filteredVendedores = showOnlyActive
-    ? vendedores.filter((vendedor) => vendedor.status === 'ativo')
+    ? vendedores.filter((vendedor) => vendedor.status)
     : vendedores;
 
   return (
@@ -83,9 +82,9 @@ export default function StoresPage() {
                     <img src={vendedor.foto} alt={`Foto de ${vendedor.nome}`} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                     <div className="p-4 sm:p-5">
                       <h2 className="text-lg sm:text-xl font-bold text-primary truncate">{vendedor.nome}</h2>
-                      <p className={`text-sm sm:text-base mt-1 flex items-center gap-2 ${vendedor.status === 'ativo' ? 'text-green-600' : 'text-red-600'}`}>
+                      <p className={`text-sm sm:text-base mt-1 flex items-center gap-2 ${vendedor.status ? 'text-green-600' : 'text-red-600'}`}>
                         <ShieldCheck className="w-4 h-4 flex-shrink-0" />
-                        <span className="capitalize">{vendedor.status}</span>
+                        <span className="capitalize">{vendedor.status ? 'Ativo' : 'Inativo'}</span>
                       </p>
                     </div>
                   </div>
