@@ -7,7 +7,9 @@ export const QRCodeDisplay = ({ title, subtitle }: QRCodeDisplayProps) => {
   const expoLink = import.meta.env.VITE_EXPO_LINK || 'https://expo.dev';
   const playStoreLink = import.meta.env.VITE_PLAYSTORE_LINK || 'https://play.google.com/store';
 
-  const qrCodeUrl = `https://expo.dev/accounts/munzzz/projects/BrechApp/builds/1bbd9cc3-f4f7-448c-97d2-228dd2dcc599`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=512x512&data=${encodeURIComponent(
+    expoLink
+  )}`;
 
   return (
     <section className="py-12 sm:py-16 lg:py-32 bg-white">
