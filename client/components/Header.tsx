@@ -16,12 +16,6 @@ export default function Header() {
         <div className="flex items-center gap-4 sm:gap-8">
           <nav className="hidden md:flex items-center gap-4 lg:gap-8">
             <a
-              href="/stores"
-              className="text-white text-lg lg:text-xl hover:text-primary transition"
-            >
-              Lojas
-            </a>
-            <a
               href="/how-it-works"
               className="text-white text-lg lg:text-xl hover:text-primary transition whitespace-nowrap"
             >
