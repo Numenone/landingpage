@@ -42,14 +42,6 @@ export default function Footer() {
             <ul className="space-y-1.5 sm:space-y-2">
               <li>
                 <a
-                  href="/stores"
-                  className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
-                >
-                  Lojas
-                </a>
-              </li>
-              <li>
-                <a
                   href="/how-it-works"
                   className="text-[#A3A3A3] text-base sm:text-lg hover:text-primary transition"
                 >
