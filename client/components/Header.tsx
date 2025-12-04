@@ -47,12 +47,6 @@ export default function Header() {
         <div className="absolute top-16 sm:top-20 left-0 w-full bg-brech-dark md:hidden shadow-lg">
           <nav className="flex flex-col items-center gap-4 py-4">
             <a
-              href="/stores"
-              className="text-white text-lg hover:text-primary transition"
-            >
-              Lojas
-            </a>
-            <a
               href="/how-it-works"
               className="text-white text-lg hover:text-primary transition"
             >
