@@ -4,7 +4,7 @@ interface QRCodeDisplayProps {
 }
 
 export const QRCodeDisplay = ({ title, subtitle }: QRCodeDisplayProps) => {
-  const expoLink = 'https://expo.dev/accounts/munzzz/projects/BrechApp/builds/003958cc-727e-4d6c-a3f4-62138129eecc';
+  const expoLink = 'https://expo.dev/accounts/munzzz/projects/BrechApp/builds/2f5f94d6-a577-41d0-bf46-bf39b7d6a1d0';
   const playStoreLink = import.meta.env.VITE_PLAYSTORE_LINK || 'https://play.google.com/store';
 
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=512x512&data=${encodeURIComponent(
